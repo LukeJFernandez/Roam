@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="#dbdbdb"
+
+    tools:context="fantasticfour.roam.MainActivity">
+    >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="How are you feeling?"
+                android:id="@+id/categoryQuestion"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif-thin"
+                android:textSize="25dp"
+                android:textColor="#162521" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="outdoors-y"
+                android:id="@+id/outdoorsBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="romantic"
+                android:id="@+id/romanceBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="hungry"
+                android:id="@+id/hungryBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="tired"
+                android:id="@+id/tiredBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="craving sweets"
+                android:id="@+id/dessertBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="9dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:fontFamily="sans-serif-thin"
+                android:text="OR"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:singleLine="false" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="9dp"
+                android:text="ready for any adventure"
+                android:id="@+id/randBtn"
+                android:textColor="#dbdbdb"
+                android:background="@drawable/roundcornerbtn2"
+                android:clickable="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:minWidth="260dp" />
+        </LinearLayout>
+    </RelativeLayout>
