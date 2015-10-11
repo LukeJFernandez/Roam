@@ -1,16 +1,24 @@
 package fantasticfour.roam;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
 import java.util.Random;
+
+import fantasticfour.roam.database.DatabaseConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private int distance_miles;
     private SeekBar seekBar;
     private TextView textView;
+    LocationManager mLocationManager = null;
 
     private void initializeVariables() {
         seekBar = (SeekBar) findViewById(R.id.seekBar);
@@ -28,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+        mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500,
+                0, mLocationListener);
 
         Button outdoors_btn = (Button) findViewById(R.id.outdoorsBtn);
         Button romance_btn = (Button) findViewById(R.id.romanceBtn);
@@ -82,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
         Button back_btn = (Button) findViewById(R.id.backBtn);
         go_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Location loc1 = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                try {
+                    NetCheck.checkNetworkConnection(getApplicationContext(),new LocationTask(getApplicationContext(), category, loc1.getLatitude(),loc1.getLongitude(),distance_miles));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Intent intent9 = new Intent(MainActivity.this, NavigationActivity.class);
                 MainActivity.this.startActivity(intent9);
             }
@@ -168,4 +187,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private class LocationTask extends AsyncTask<Object, Void, JSONObject> {
+        Context c; int category; double latitude; double longitude; int distance;
+
+        public LocationTask(Context c, int category, double latitude, double longitude, int distance) {
+            this.c = c;
+            this.category = category;
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.distance = distance;
+        }
+
+        @Override
+        protected JSONObject doInBackground(Object... params) {
+            return DatabaseConnection.getLocation(category, latitude, longitude, distance);
+        }
+    }
+
+    private final LocationListener mLocationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(final Location location) {
+
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
 }
