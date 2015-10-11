@@ -15,7 +15,7 @@ import java.util.UUID;
 public class NavigationActivity extends AppCompatActivity {
 
     UUID pebbleAppId = UUID.fromString("43181d1a-de09-40a7-8307-8bd1b34adde3");
-    float finishDistance = 50; //In meters
+    float finishDistance = 20; //In meters
     double destLat = 35.918519;
     double destLong = -79.038193;
     boolean arrived = false;
@@ -23,6 +23,12 @@ public class NavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            double latitude = Double.parseDouble(extras.getString("latitude"));
+            double longitude = Double.parseDouble(extras.getString("longitude"));
+            setDestination(latitude, longitude);
+        }
         setContentView(R.layout.activity_navigation);
     }
 
@@ -60,10 +66,16 @@ public class NavigationActivity extends AppCompatActivity {
         if(loc.distanceTo(destination) <= finishDistance) {
             showFinishScreen();
             arrived = true;
+            showFinishApp();
         } else {
             float bearingTo = loc.bearingTo(destination) - loc.getBearing();
             setAngle((int) bearingTo);
         }
+    }
+
+    void setDestination(double destLat, double destLong) {
+        this.destLat = destLat;
+        this.destLong = destLong;
     }
 
     void pebbleSetup() {

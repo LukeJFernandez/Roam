@@ -39,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000,
-                0, mLocationListener);
+        try {
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000,
+                    0, mLocationListener);
+        } catch (SecurityException ex) {}
 
         Button outdoors_btn = (Button) findViewById(R.id.outdoorsBtn);
         Button romance_btn = (Button) findViewById(R.id.romanceBtn);
@@ -95,15 +97,15 @@ public class MainActivity extends AppCompatActivity {
         Button back_btn = (Button) findViewById(R.id.backBtn);
         go_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Location loc1 = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
+                Location loc1;
                 try {
-                    NetCheck.checkNetworkConnection(getApplicationContext(),new LocationTask(getApplicationContext(), category, 35.9193790,-79.0369590,distance_miles/20));
+                    loc1 = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    NetCheck.checkNetworkConnection(getApplicationContext(),new LocationTask(getApplicationContext(), category, loc1.getLatitude(),loc1.getLongitude(),distance_miles/20));
+                } catch (SecurityException ex) {
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Intent intent9 = new Intent(MainActivity.this, NavigationActivity.class);
-                MainActivity.this.startActivity(intent9);
             }
         });
 
@@ -203,6 +205,17 @@ public class MainActivity extends AppCompatActivity {
         protected JSONObject doInBackground(Object... params) {
             JSONObject x = DatabaseConnection.getLocation(category, latitude, longitude, distance);
             return x;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject json) {
+            Intent intent9 = new Intent(MainActivity.this, NavigationActivity.class);
+            try {
+                JSONObject locations = json.getJSONObject("locations");
+                intent9.putExtra("latitude", locations.getString("latitude"));
+                intent9.putExtra("longitude", locations.getString("longitude"));
+            } catch (Exception ex) {}
+            MainActivity.this.startActivity(intent9);
         }
     }
 
