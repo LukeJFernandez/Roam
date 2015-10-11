@@ -158,14 +158,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 textView.setText(numFormat.format((progress / 100.0) * 5.0) + " mi");
-
+                saveDistance(progress);
             }
         });
     }
 
     protected void saveDistance(int input) {
         distance_miles = input;
-
     }
 
 
