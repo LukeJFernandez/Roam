@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500,
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000,
                 0, mLocationListener);
 
         Button outdoors_btn = (Button) findViewById(R.id.outdoorsBtn);
@@ -96,8 +96,9 @@ public class MainActivity extends AppCompatActivity {
         go_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Location loc1 = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
                 try {
-                    NetCheck.checkNetworkConnection(getApplicationContext(),new LocationTask(getApplicationContext(), category, loc1.getLatitude(),loc1.getLongitude(),distance_miles));
+                    NetCheck.checkNetworkConnection(getApplicationContext(),new LocationTask(getApplicationContext(), category, 35.9193790,-79.0369590,distance_miles/20));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -200,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected JSONObject doInBackground(Object... params) {
-            return DatabaseConnection.getLocation(category, latitude, longitude, distance);
+            JSONObject x = DatabaseConnection.getLocation(category, latitude, longitude, distance);
+            return x;
         }
     }
 
