@@ -2,4 +2,5 @@
     <string name="app_name">Roam</string>
     <string name="category_text">How are you feeling?</string>
     <string name="distance_text">How far are would you like to go?</string>
+    <string name="splash_string">Roam Splash</string>
 </resources>
