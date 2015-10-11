@@ -2,7 +2,6 @@ package fantasticfour.roam;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.ViewFlipper;
 
@@ -14,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_input);
+        setContentView(R.layout.activity_main);
         TruitonFlipper = (ViewFlipper) findViewById(R.id.flipper);
         TruitonFlipper.setInAnimation(this, android.R.anim.fade_in);
         TruitonFlipper.setOutAnimation(this, android.R.anim.fade_out);
