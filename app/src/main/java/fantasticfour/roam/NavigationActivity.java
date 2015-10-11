@@ -65,4 +65,8 @@ public class NavigationActivity extends AppCompatActivity {
         PebbleKit.sendDataToPebble(this, pebbleAppId, finishData);
     }
 
+    void showFinishApp() {
+        setContentView(R.layout.activity_end);
+    }
+
 }
