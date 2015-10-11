@@ -61,15 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
         tired_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Random rand = new Random();
-                int num = rand.nextInt(5) + 1;
-                saveCategory(num);
+                saveCategory(1);
             }
         });
 
         rand_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                saveCategory(1);
+                Random rand = new Random();
+                int num = rand.nextInt(5) + 1;
+                saveCategory(num);
             }
         });
     }
@@ -82,13 +82,57 @@ public class MainActivity extends AppCompatActivity {
         Button back_btn = (Button) findViewById(R.id.backBtn);
         go_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                saveCategory(2);
+                Intent intent9 = new Intent(MainActivity.this, NavigationActivity.class);
+                MainActivity.this.startActivity(intent9);
             }
         });
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setContentView(R.layout.activity_category);
+                Button outdoors_btn = (Button) findViewById(R.id.outdoorsBtn);
+                Button romance_btn = (Button) findViewById(R.id.romanceBtn);
+                Button hungry_btn = (Button) findViewById(R.id.hungryBtn);
+                Button dessert_btn = (Button) findViewById(R.id.dessertBtn);
+                Button tired_btn = (Button) findViewById(R.id.tiredBtn);
+                Button rand_btn = (Button) findViewById(R.id.randBtn);
+
+                outdoors_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        saveCategory(5);
+                    }
+                });
+                romance_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        saveCategory(4);
+                    }
+                });
+
+                hungry_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        saveCategory(3);
+                    }
+                });
+
+                dessert_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        saveCategory(2);
+                    }
+                });
+
+                tired_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        saveCategory(1);
+                    }
+                });
+
+                rand_btn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Random rand = new Random();
+                        int num = rand.nextInt(5) + 1;
+                        saveCategory(num);
+                    }
+                });
             }
         });
         initializeVariables();
