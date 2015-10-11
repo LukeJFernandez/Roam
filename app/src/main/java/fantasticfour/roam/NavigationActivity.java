@@ -23,6 +23,10 @@ public class NavigationActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         pebbleSetup();
+        try {
+            Thread.sleep(5000);
+        } catch (Exception ex) {}
+        showFinishScreen();
         /*int angle = 45;
         while(true) {
             setAngle(angle);
@@ -39,11 +43,13 @@ public class NavigationActivity extends AppCompatActivity {
         PebbleKit.startAppOnPebble(this, pebbleAppId);
         PebbleKit.registerReceivedAckHandler(getApplicationContext(), new PebbleKit.PebbleAckReceiver(pebbleAppId) {
             @Override
-            public void receiveAck(Context context, int transactionId) {}
+            public void receiveAck(Context context, int transactionId) {
+            }
         });
         PebbleKit.registerReceivedNackHandler(getApplicationContext(), new PebbleKit.PebbleNackReceiver(pebbleAppId) {
             @Override
-            public void receiveNack(Context context, int transactionId) {}
+            public void receiveNack(Context context, int transactionId) {
+            }
         });
     }
 
@@ -51,6 +57,12 @@ public class NavigationActivity extends AppCompatActivity {
         PebbleDictionary angleData = new PebbleDictionary();
         angleData.addInt32(1, angle);
         PebbleKit.sendDataToPebble(this, pebbleAppId, angleData);
+    }
+
+    void showFinishScreen() {
+        PebbleDictionary finishData = new PebbleDictionary();
+        finishData.addInt32(2, 0);
+        PebbleKit.sendDataToPebble(this, pebbleAppId, finishData);
     }
 
 }
