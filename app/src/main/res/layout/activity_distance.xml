@@ -1,10 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dbdbdb"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
     tools:context="fantasticfour.roam.MainActivity">
+
+    <TextView
+        android:id="@+id/distancePrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="How far do you want to walk?"
+        android:textSize="25dp" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:contentDescription='"backbutton.png"' />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/maxDistance"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:minHeight="50dp"
+        android:minWidth="220dp" />
+
+
+    <TextView
+        android:id="@+id/maxDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/distancePrompt"
+        android:layout_alignRight="@+id/distancePrompt"
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-thin"
+        android:text="5.0 mi"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
+
+
+    <TextView
+        android:id="@+id/minDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/maxDistance"
+        android:layout_toEndOf="@+id/backButton"
+        android:layout_toRightOf="@+id/backButton"
+        android:fontFamily="sans-serif-thin"
+        android:text="0.0 mi"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
+    …
+
+
+    <TextView
+        android:id="@+id/willingDist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/distancePrompt"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="25dp"
+        android:fontFamily="sans-serif-thin"
+        android:text="&lt;= 5.0 mi"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40dp" />
+    …
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingLeft="40.0dip"
+        android:paddingTop="5.0dip"
+        android:paddingRight="40.0dip"
+        android:paddingBottom="1.0dip"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_below="@+id/maxDistance"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="92dp">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="0.0dp" android:layout_height="fill_parent"
+            android:text="Back"
+            android:layout_weight="1.0"
+            android:background="@drawable/roundcornerbtn"
+            android:clickable="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:id="@+id/goBtn"
+            android:layout_width="0.0dp" android:layout_height="fill_parent"
+            android:text="Let&apos;s go!"
+            android:layout_weight="1.0"
+            android:background="@drawable/roundcornerbtn"
+            android:clickable="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"/>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

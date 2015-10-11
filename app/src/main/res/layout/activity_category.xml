@@ -37,10 +37,11 @@
                 android:id="@+id/outdoorsBtn"
                 android:textColor="#dbdbdb"
                 android:background="@drawable/roundcornerbtn"
-                android:clickable="false"
+                android:clickable="true"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:minWidth="260dp" />
+                android:minWidth="260dp"
+                android:onClick="" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -51,10 +52,11 @@
                 android:id="@+id/romanceBtn"
                 android:textColor="#dbdbdb"
                 android:background="@drawable/roundcornerbtn"
-                android:clickable="false"
+                android:clickable="true"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:minWidth="260dp" />
+                android:minWidth="260dp"
+                android:onClick="" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -65,10 +67,11 @@
                 android:id="@+id/hungryBtn"
                 android:textColor="#dbdbdb"
                 android:background="@drawable/roundcornerbtn"
-                android:clickable="false"
+                android:clickable="true"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:minWidth="260dp" />
+                android:minWidth="260dp"
+                android:onClick="saveCategory(3)" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,10 +81,11 @@
                 android:id="@+id/tiredBtn"
                 android:textColor="#dbdbdb"
                 android:background="@drawable/roundcornerbtn"
-                android:clickable="false"
+                android:clickable="true"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:minWidth="260dp" />
+                android:minWidth="260dp"
+                android:onClick="" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,10 +95,11 @@
                 android:id="@+id/dessertBtn"
                 android:textColor="#dbdbdb"
                 android:background="@drawable/roundcornerbtn"
-                android:clickable="false"
+                android:clickable="true"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:minWidth="260dp" />
+                android:minWidth="260dp"
+                android:onClick="" />
 
             <TextView
                 android:layout_width="wrap_content"

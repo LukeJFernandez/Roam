@@ -7,4 +7,28 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="fantasticfour.roam.NavigationActivity">
 
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="And we&apos;re off!"
+        android:id="@+id/textView2"
+        android:textSize="35sp"
+        android:typeface="serif"
+        android:textAlignment="center"
+        android:layout_above="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Check your Pebble for directions."
+        android:id="@+id/textView3"
+        android:textSize="35sp"
+        android:typeface="serif"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
