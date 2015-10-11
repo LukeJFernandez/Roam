@@ -10,6 +10,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
         tired_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                saveCategory(1);
+                Random rand = new Random();
+                int num = rand.nextInt(5) + 1;
+                saveCategory(num);
             }
         });
 
@@ -72,13 +75,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void saveCategory(int input) {
         category = input;
         setContentView(R.layout.activity_distance);
+        Button go_btn = (Button) findViewById(R.id.goBtn);
+        Button back_btn = (Button) findViewById(R.id.backBtn);
+        go_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(2);
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.activity_category);
+            }
+        });
         initializeVariables();
 
-        textView.setText("<= 1.0 mi");
+        textView.setText("1.0 mi");
 
         final DecimalFormat numFormat = new DecimalFormat("#.0");
 
@@ -98,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                textView.setText("<= " + numFormat.format((progress / 100.0) * 5.0) + " mi");
+                textView.setText(numFormat.format((progress / 100.0) * 5.0) + " mi");
 
             }
         });
