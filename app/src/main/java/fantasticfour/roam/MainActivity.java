@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -21,58 +23,85 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.willingDist);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
 
-        final Handler handler3 = new Handler();
-        handler3.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setContentView(R.layout.activity_distance);
-                initializeVariables();
+        Button outdoors_btn = (Button) findViewById(R.id.outdoorsBtn);
+        Button romance_btn = (Button) findViewById(R.id.romanceBtn);
+        Button hungry_btn = (Button) findViewById(R.id.hungryBtn);
+        Button dessert_btn = (Button) findViewById(R.id.dessertBtn);
+        Button tired_btn = (Button) findViewById(R.id.tiredBtn);
+        Button rand_btn = (Button) findViewById(R.id.randBtn);
 
-                textView.setText("<= 1.0 mi");
-
-                final DecimalFormat numFormat = new DecimalFormat("#.0");
-
-                seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    int progress = 0;
-
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
-                        progress = progressValue;
-
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                        textView.setText("<= " + numFormat.format((progress / 100.0) * 5.0) + " mi");
-
-                    }
-                });
+        outdoors_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(5);
             }
-        }, 5000);
-
-        final Handler handler2 = new Handler();
-        handler2.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent2 = new Intent(MainActivity.this, NavigationActivity.class);
-                MainActivity.this.startActivity(intent2);
+        });
+        romance_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(4);
             }
-        }, 5000);
+        });
+
+        hungry_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(3);
+            }
+        });
+
+        dessert_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(2);
+            }
+        });
+
+        tired_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(1);
+            }
+        });
+
+        rand_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                saveCategory(1);
+            }
+        });
     }
 
-    protected void saveCategory(int input) {
+
+
+    public void saveCategory(int input) {
         category = input;
+        setContentView(R.layout.activity_distance);
+        initializeVariables();
+
+        textView.setText("<= 1.0 mi");
+
+        final DecimalFormat numFormat = new DecimalFormat("#.0");
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = 0;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
+                progress = progressValue;
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                textView.setText("<= " + numFormat.format((progress / 100.0) * 5.0) + " mi");
+
+            }
+        });
     }
 
     protected void saveDistance(int input) {
