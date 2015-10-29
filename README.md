@@ -1,4 +1,4 @@
-# hacknc2015 - Roam
+# Roam - A HackNC 2015 Hackathon Project
 
 ## What it does
 Roam helps people make the best of every moment, no matter where they are. Select your mood or play your chances, and Roam will guide you to an unrevealed, crowd-sourced location. Users specify an activity category such as exploring the outdoors, seeking dessert locations, or finding a new date venue and also input a distance that they are wiling to walk. Roam generates a user-vetted location and leads the user to the destination without revealing identifying details--adding an element of surprise to your next adventure. Roam interfaces with the Pebble watch to provide a convenient navigation experience. 
