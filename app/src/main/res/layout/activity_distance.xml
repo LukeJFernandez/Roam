@@ -79,7 +79,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="25dp"
         android:fontFamily="sans-serif-thin"
-        android:text="&lt;= 5.0 mi"
+        android:text="5.0 mi"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="40dp" />
     …
