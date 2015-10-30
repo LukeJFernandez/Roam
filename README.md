@@ -10,10 +10,12 @@ Version control and merging project components that were built separately. Issue
 Roam is for anyone who has ever struggled to pick a restaurant or other destination, or who has become tired of frequenting the same locations. Benefit from the recommendations of other users, and add an extra element of excitement to your next adventure by navigating to an unrevealed destination. Embrace the spontaneous exploration!
 
 ## What's next for Roam
-1. Users' rating and location feedback
+1. Users' rating and location feedback portal
 2. Add new locations, enlist 'beta' testers to suggest new locations
 3. Streamlined 'quit' feature once navigation is initiated
 4. Dynamically-updated distance remaining
+5. Transitioning from Pebble navigation to Android navigation
+6. Addition of interface for users to add their own locations
 
 ## [A Demo] (https://youtu.be/jSsQu6IRb2Y)
 
